@@ -34,7 +34,7 @@ serve(async (req) => {
 
     // Create Razorpay order
     if (action === 'create_order') {
-      const orderAmount = amount || 9900; // Default amount in paise (99 INR)
+      const orderAmount = amount || 200; // Default amount in paise (2 INR)
       
       const response = await fetch('https://api.razorpay.com/v1/orders', {
         method: 'POST',

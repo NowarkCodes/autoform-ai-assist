@@ -58,7 +58,7 @@ export const Hero = () => {
 
       // Create order
       const { data: orderData, error: orderError } = await supabase.functions.invoke('razorpay-payment', {
-        body: { action: 'create_order', amount: 9900 }, // 99 INR
+        body: { action: 'create_order', amount: 200 }, // 2 INR
       });
 
       if (orderError || !orderData.success) {
