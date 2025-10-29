@@ -24,6 +24,14 @@ serve(async (req) => {
 
     console.log('Processing Razorpay request:', { action, orderId });
 
+    // Get Razorpay Key ID
+    if (action === 'get_key') {
+      return new Response(
+        JSON.stringify({ success: true, keyId: razorpayKeyId }),
+        { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
     // Create Razorpay order
     if (action === 'create_order') {
       const orderAmount = amount || 9900; // Default amount in paise (99 INR)

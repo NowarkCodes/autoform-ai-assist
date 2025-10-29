@@ -41,6 +41,21 @@ export const Hero = () => {
         return;
       }
 
+      // Get Razorpay Key ID from backend
+      const { data: keyData, error: keyError } = await supabase.functions.invoke('razorpay-payment', {
+        body: { action: 'get_key' },
+      });
+
+      if (keyError || !keyData.success) {
+        toast({
+          title: "Configuration Error",
+          description: "Payment gateway not configured. Please contact support.",
+          variant: "destructive",
+        });
+        setIsProcessing(false);
+        return;
+      }
+
       // Create order
       const { data: orderData, error: orderError } = await supabase.functions.invoke('razorpay-payment', {
         body: { action: 'create_order', amount: 9900 }, // 99 INR
@@ -54,7 +69,7 @@ export const Hero = () => {
 
       // Initialize Razorpay
       const options = {
-        key: import.meta.env.VITE_RAZORPAY_KEY_ID || 'rzp_test_dummy',
+        key: keyData.keyId,
         amount: order.amount,
         currency: order.currency,
         name: 'AI Form Filler',
