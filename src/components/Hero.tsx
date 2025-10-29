@@ -132,8 +132,25 @@ export const Hero = () => {
       title: "Download Started",
       description: "Your extension download will begin shortly",
     });
-    // Add actual download link here
-    window.open('https://chrome.google.com/webstore', '_blank');
+    const link = document.createElement('a');
+    link.href = '/AI_Form_Filler.zip';
+    link.download = 'AI_Form_Filler.zip';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleFreeDownload = () => {
+    toast({
+      title: "Free Download Started",
+      description: "Your extension is downloading now",
+    });
+    const link = document.createElement('a');
+    link.href = '/AI_Form_Filler.zip';
+    link.download = 'AI_Form_Filler.zip';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -146,18 +163,29 @@ export const Hero = () => {
           <p className="mb-8 text-lg text-primary-foreground/90 sm:text-xl animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
             Accelerate your form filling with AI-powered suggestions. Save time, reduce errors, and enhance productivity.
           </p>
-          <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
             {!isPaymentVerified ? (
-              <Button 
-                variant="hero" 
-                size="xl" 
-                className="gap-2"
-                onClick={handlePayment}
-                disabled={isProcessing}
-              >
-                <Download className="h-5 w-5" />
-                {isProcessing ? 'Processing...' : 'Pay & Download Extension'}
-              </Button>
+              <>
+                <Button 
+                  variant="hero" 
+                  size="xl" 
+                  className="gap-2"
+                  onClick={handlePayment}
+                  disabled={isProcessing}
+                >
+                  <Download className="h-5 w-5" />
+                  {isProcessing ? 'Processing...' : 'Pay ₹2 & Download'}
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="xl" 
+                  className="gap-2 bg-white/10 text-white border-white/20 hover:bg-white/20"
+                  onClick={handleFreeDownload}
+                >
+                  <Download className="h-5 w-5" />
+                  Free Download
+                </Button>
+              </>
             ) : (
               <Button 
                 variant="hero" 
