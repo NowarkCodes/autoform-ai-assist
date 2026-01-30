@@ -1,73 +1,91 @@
-# Welcome to your Lovable project
+# AutoForm AI Assist
 
-## Project info
+**Intelligent, context-aware form filling powered by multiple AI providers.**
 
-**URL**: https://lovable.dev/projects/14013914-3435-4263-8e4c-f6c0acc07f64
+[**Visit the Website & Download**](https://autoform-ai-assist.vercel.app/)
 
-## How can I edit this code?
+## 🚀 Overview
 
-There are several ways of editing your application.
+**AutoForm AI Assist** is a browser extension designed to streamline the process of filling out web forms. Unlike standard autofill tools that use static data, this extension utilizes Large Language Models (LLMs) to generate contextually relevant, professional content on the fly.
 
-**Use Lovable**
+Whether you are applying for jobs, writing professional messages, or filling out bio sections, AutoForm AI Assist reads the field context and your personal profile to generate the perfect response.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/14013914-3435-4263-8e4c-f6c0acc07f64) and start prompting.
+## ✨ Key Features
 
-Changes made via Lovable will be committed automatically to this repo.
+* **🤖 Multi-LLM Support:** Choose your preferred AI provider. Supports **OpenAI (GPT-3.5)**, **Google Gemini (Pro)**, and **Groq (Llama 3)**.
+* **👤 Context-Aware Personalization:** Stores a user profile (Name, Role, Company, LinkedIn) to tailor every response to your specific professional background.
+* **📝 Smart Field Detection:** Automatically detects field types to generate specific content:
+    * **Bios:** Professional, engaging summaries (50-80 words).
+    * **Cover Letters:** Role-specific application excerpts.
+    * **Messages:** Polite and concise professional correspondence.
+    * **Explanations:** Realistic reasons and motivations based on your profile.
+* **🔒 Privacy Focused:** Your API keys are stored locally in your browser.
 
-**Use your preferred IDE**
+## 🛠️ Tech Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Extension Core
+* **Manifest V3:** Modern Chrome Extension architecture.
+* **JavaScript (ES6+):** Service workers and content scripts for DOM manipulation.
+* **Storage API:** Local handling of user profiles and settings.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Landing Page & Distribution
+* **React 18:** Component-based UI.
+* **Vite:** Fast build tool and development server.
+* **Tailwind CSS & shadcn/ui:** Modern, responsive styling.
+* **Supabase:** Backend integration for payment verification.
+* **Razorpay:** Secure payment gateway integration.
 
-Follow these steps:
+## 📦 Installation
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### For Users
+1.  Visit [https://autoform-ai-assist.vercel.app/](https://autoform-ai-assist.vercel.app/).
+2.  Download the `AI_Form_Filler.zip` file.
+3.  Unzip the file on your computer.
+4.  Open Chrome and navigate to `chrome://extensions/`.
+5.  Enable **Developer Mode** (top right toggle).
+6.  Click **Load unpacked** and select the unzipped folder.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### For Developers (Build from Source)
+To run the landing page or modify the extension locally:
 
-# Step 3: Install the necessary dependencies.
-npm i
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/yourusername/autoform-ai-assist.git](https://github.com/yourusername/autoform-ai-assist.git)
+    cd autoform-ai-assist
+    ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-**Edit a file directly in GitHub**
+3.  **Run the landing page:**
+    ```bash
+    npm run dev
+    ```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+4.  **Extension Development:**
+    * The extension source code is located in `public/AI_Form_Filler.zip/AI_Form_Filler/`.
+    * You can extract this folder and load it into Chrome to test changes to `background.js` or `content.js`.
 
-**Use GitHub Codespaces**
+## ⚙️ Configuration
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Once installed, pin the extension to your browser bar and click the icon to open the **Settings** panel.
 
-## What technologies are used for this project?
+1.  **Select Provider:** Choose between OpenAI, Gemini, or Groq.
+2.  **API Key:** Enter your valid API key for the selected provider.
+3.  **User Profile:** Navigate to the "Profile" tab and enter your professional details (Name, Role, Company). This context is sent to the AI to personalize responses.
 
-This project is built with:
+## 🤝 Contributing
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-## How can I deploy this project?
+1.  Fork the project
+2.  Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
 
-Simply open [Lovable](https://lovable.dev/projects/14013914-3435-4263-8e4c-f6c0acc07f64) and click on Share -> Publish.
+## 📄 License
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Distributed under the MIT License. See `LICENSE` for more information.
